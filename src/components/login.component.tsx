@@ -40,6 +40,11 @@ export default class Login extends Component<Props, State> {
         });
     
         console.log(username, password);
+
+        this.setState({
+            message: "",
+            loading: false
+          });
     }
 
     render() {
@@ -85,8 +90,8 @@ export default class Login extends Component<Props, State> {
                     />
                 </div>
 
-                <div className="form-group">
-                    <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
+                <div className="d-grid gap-2">
+                    <button type="submit" className="btn btn-primary mt-2" disabled={loading}>
                     {loading && (
                         <span className="spinner-border spinner-border-sm"></span>
                     )}

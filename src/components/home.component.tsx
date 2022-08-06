@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Card from 'react-bootstrap/Card';
 
 type Props = {};
 
@@ -22,9 +23,12 @@ export default class Home extends Component<Props, State> {
     render() {
         return (
           <div className="container">
-            <header className="jumbotron">
-              <h3>{this.state.content}</h3>
-            </header>
+            <Card>
+                <Card.Body>This is some text within a card body.</Card.Body>
+            </Card>
+            <Card>
+                <Card.Body>This is some text within a card body.</Card.Body>
+            </Card>
           </div>
         );
     }
