@@ -17,7 +17,7 @@ export default class Home extends Component<Props, State> {
     }
 
     componentDidMount() {
-        console.log('Welcome Home component')
+        // console.log('Welcome Home component')
     }
 
     render() {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import IUser from './types/user.type';
 import { Routes, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,13 +8,22 @@ import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import "./App.css";
+import AuthService from "./services/auth.service";
 
 const App: React.FC = () => {
   const [currentUser, setCurrentUser] = useState<IUser | undefined>(undefined);
 
   const logOut = () => {
+    AuthService.logout();
     setCurrentUser(undefined);
   };
+
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, []);
 
   return (
     <div>
@@ -32,7 +41,7 @@ const App: React.FC = () => {
           {currentUser && (
             <li className="nav-item">
               <Link to={"/user"} className="nav-link">
-                User
+                My Bookings
               </Link>
             </li>
           )}
@@ -47,7 +56,7 @@ const App: React.FC = () => {
             </li>
             <li className="nav-item">
               <a href="/login" className="nav-link" onClick={logOut}>
-                LogOut
+                Logout
               </a>
             </li>
           </div>
