@@ -86,7 +86,7 @@ const Login = (props: any) => {
                 <div className="d-grid gap-2">
                     <button type="submit" className="btn btn-primary mt-2" disabled={loading}>
                     {loading && (
-                        <span className="spinner-border spinner-border-sm"></span>
+                        <span className="spinner-border spinner-border-sm me-2"></span>
                     )}
                     <span>Login</span>
                     </button>
